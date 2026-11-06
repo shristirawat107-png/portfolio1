@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shristi Rawat | Data Analyst Portfolio</title>
+
+<meta name="description"
+content="Shristi Rawat - Data Analyst Portfolio featuring Excel, SQL, Python, Power BI, Tableau and Data Visualization projects.">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+/* =========================
+   COLOR THEME
+========================= */
+
+:root {
+    --primary: #22d3ee;
+    --primary-dark: #0891b2;
+    --secondary: #3b82f6;
+
+    --dark: #07111f;
+    --dark-2: #0b1729;
+    --dark-3: #10233d;
+
+    --white: #ffffff;
+    --text: #e5f2ff;
+    --muted: #94a9bf;
+
+    --card: rgba(15, 35, 60, 0.82);
+    --border: rgba(148, 163, 184, 0.18);
+
+    --shadow: 0 20px 60px rgba(0,0,0,.30);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top right, rgba(34,211,238,.08), transparent 30%),
+        var(--dark);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    background: rgba(7,17,31,.88);
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    min-height: 74px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 720px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 80% 30%, rgba(34,211,238,.15), transparent 30%),
+        linear-gradient(135deg, #07111f, #0b1729);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 7px 15px;
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(34,211,238,.3);
+    border-radius: 30px;
+
+    color: var(--primary);
+    background: rgba(34,211,238,.08);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.hero p {
+    max-width: 650px;
+
+    color: var(--muted);
+    font-size: 17px;
+
+    margin-bottom: 30px;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 12px 23px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+.btn-primary {
+    color: #04111c;
+
+    background: var(--primary);
+
+    box-shadow: 0 8px 30px rgba(34,211,238,.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background: #67e8f9;
+}
+
+.btn-outline {
+    color: white;
+
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.03);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-wrap {
+    text-align: center;
+}
+
+.profile-photo {
+    width: 290px;
+    height: 290px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid rgba(34,211,238,.7);
+
+    box-shadow:
+        0 0 0 15px rgba(34,211,238,.04),
+        0 25px 80px rgba(0,0,0,.5);
+}
+
+.photo-caption {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    padding: 90px 0;
+}
+
+.section-heading {
+    max-width: 700px;
+    text-align: center;
+
+    margin: 0 auto 50px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 25px;
+}
+
+.card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+.info-list {
+    display: grid;
+    gap: 15px;
+}
+
+.info-item {
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.info-item:last-child {
+    border: none;
+}
+
+.info-item strong {
+    display: block;
+    color: white;
+}
+
+.info-item span {
+    color: var(--muted);
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 16px;
+
+    margin-top: 25px;
+}
+
+.stat {
+    padding: 23px;
+
+    text-align: center;
+
+    background: rgba(34,211,238,.05);
+
+    border: 1px solid rgba(34,211,238,.15);
+    border-radius: 15px;
+}
+
+.stat strong {
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 27px;
+}
+
+.stat span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    background: linear-gradient(
+        145deg,
+        #0d2038,
+        #07111f
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    padding: 28px;
+
+    box-shadow: var(--shadow);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.dashboard-header h3 {
+    font-size: 25px;
+}
+
+.dashboard-header p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.live-badge {
+    color: #67e8f9;
+
+    background: rgba(34,211,238,.08);
+
+    border: 1px solid rgba(34,211,238,.2);
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.kpi {
+    padding: 20px;
+
+    background: rgba(255,255,255,.035);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+}
+
+.kpi small {
+    color: var(--muted);
+}
+
+.kpi strong {
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--primary);
+
+    font-size: 26px;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 20px;
+}
+
+.chart-card {
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 20px;
+}
+
+.chart-card h4 {
+    margin-bottom: 15px;
+}
+
+.chart-box {
+    height: 280px;
+    position: relative;
+}
+
+
+/* =========================
+   PROJECT DASHBOARDS
+========================= */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 22px;
+}
+
+.project {
+    overflow: hidden;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    transition: .3s;
+
+    box-shadow: var(--shadow);
+}
+
+.project:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(34,211,238,.45);
+}
+
+.project-image {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #0b1729;
+}
+
+.project-content {
+    padding: 22px;
+}
+
+.project-content h3 {
+    margin-bottom: 9px;
+}
+
+.project-content p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.tags span {
+    padding: 5px 9px;
+
+    color: var(--primary);
+
+    background: rgba(34,211,238,.07);
+
+    border: 1px solid rgba(34,211,238,.13);
+
+    border-radius: 6px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 18px;
+}
+
+.skill {
+    padding: 24px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    transition: .25s;
+}
+
+.skill:hover {
+    border-color: rgba(34,211,238,.4);
+
+    transform: translateY(-4px);
+}
+
+.skill-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 15px;
+
+    color: var(--primary);
+
+    background: rgba(34,211,238,.08);
+
+    border-radius: 10px;
+
+    font-weight: 800;
+}
+
+.skill h3 {
+    margin-bottom: 8px;
+}
+
+.skill p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    gap: 25px;
+}
+
+.contact-links {
+    display: grid;
+
+    gap: 13px;
+
+    margin-top: 20px;
+}
+
+.contact-links a {
+    color: var(--primary);
+
+    font-weight: 700;
+
+    overflow-wrap: anywhere;
+}
+
+.contact-form {
+    display: grid;
+    gap: 14px;
+}
+
+.contact-form label {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 12px 14px;
+
+    color: white;
+
+    background: #07111f;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+}
+
+.contact-form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 28px 0;
+
+    text-align: center;
+
+    background: #040b14;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px) {
+
+    .hero-grid,
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .profile-wrap {
+        order: -1;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:650px) {
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 74px;
+        left: 0;
+        right: 0;
+
+        padding: 22px 6%;
+
+        flex-direction: column;
+
+        background: #07111f;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .stats,
+    .kpi-grid,
+    .chart-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard {
+        padding: 18px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-photo {
+        width: 220px;
+        height: 220px;
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="navbar">
+
+<div class="container nav-inner">
+
+<a href="#home" class="logo">
+Shristi Rawat<span>.</span>
+</a>
+
+<button class="menu-btn"
+id="menuBtn"
+aria-label="Open navigation">
+☰
+</button>
+
+<nav>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#dashboard">Dashboard</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+
+<div>
+
+<span class="badge">
+Aspiring Data Analyst
+</span>
+
+<h1>
+
+Hi, I'm
+<span class="highlight">
+Shristi Rawat.
+</span>
+
+<br>
+
+I turn data into
+<span class="highlight">
+insights.
+</span>
+
+</h1>
+
+
+<p>
+
+I am building my career in Data Analytics
+with hands-on learning in Excel, SQL,
+Python, Power BI, Tableau and data visualization.
+
+I enjoy transforming raw data into meaningful
+insights and clear business dashboards.
+
+</p>
+
+
+<div class="button-row">
+
+<a href="#projects"
+class="btn btn-primary">
+
+View My Projects →
+
+</a>
+
+<a href="#contact"
+class="btn btn-outline">
+
+Let's Connect
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="profile-wrap">
+
+<img
+src="profile.jpg"
+alt="Shristi Rawat"
+class="profile-photo"
+onerror="this.style.display='none';">
+
+
+<p class="photo-caption">
+
+Shristi Rawat
+<br>
+Data Analytics Portfolio
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section" id="about">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+About <span class="highlight">Me</span>
+</h2>
+
+<p>
+My journey towards becoming a Data Analyst.
+</p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="card">
+
+<h3>
+My Journey
+</h3>
+
+<p>
+
+I am Shristi Rawat, currently developing
+my skills in Data Analytics.
+
+My learning journey includes Excel,
+SQL, Python, Power BI, Tableau,
+statistics and data visualization.
+
+</p>
+
+<br>
+
+<p>
+
+My goal is to build practical projects,
+improve my analytical thinking and
+use data to support better
+business decisions.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Quick Information
+</h3>
+
+<div class="info-list">
+
+<div class="info-item">
+<strong>Name</strong>
+<span>Shristi Rawat</span>
+</div>
+
+<div class="info-item">
+<strong>Career Interest</strong>
+<span>Data Analytics</span>
+</div>
+
+<div class="info-item">
+<strong>Education</strong>
+<span>Class 12 Completed | Graduation Pursuing</span>
+</div>
+
+<div class="info-item">
+<strong>Location</strong>
+<span>Delhi, India</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<strong>5+</strong>
+<span>Analytics Tools</span>
+</div>
+
+<div class="stat">
+<strong>3+</strong>
+<span>Dashboards</span>
+</div>
+
+<div class="stat">
+<strong>4+</strong>
+<span>Core Skills</span>
+</div>
+
+<div class="stat">
+<strong>∞</strong>
+<span>Learning Mindset</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<section class="section" id="dashboard">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+Sales <span class="highlight">Dashboard</span>
+</h2>
+
+<p>
+Interactive portfolio demonstration of
+sales performance and business KPIs.
+</p>
+
+</div>
+
+
+<div class="dashboard">
+
+
+<div class="dashboard-header">
+
+<div>
+
+<h3>
+Sales Performance Overview
+</h3>
+
+<p>
+Revenue trends • Profit • Orders • Categories
+</p>
+
+</div>
+
+<span class="live-badge">
+PORTFOLIO DEMO
+</span>
+
+</div>
+
+
+<div class="kpi-grid">
+
+<div class="kpi">
+<small>Total Revenue</small>
+<strong>₹12.5L</strong>
+</div>
+
+<div class="kpi">
+<small>Total Profit</small>
+<strong>₹3.2L</strong>
+</div>
+
+<div class="kpi">
+<small>Total Orders</small>
+<strong>1,250</strong>
+</div>
+
+<div class="kpi">
+<small>Avg. Order Value</small>
+<strong>₹1,000</strong>
+</div>
+
+</div>
+
+
+<div class="chart-grid">
+
+<div class="chart-card">
+
+<h4>
+Monthly Revenue Trend
+</h4>
+
+<div class="chart-box">
+
+<canvas id="revenueChart"></canvas>
+
+</div>
+
+</div>
+
+
+<div class="chart-card">
+
+<h4>
+Category-wise Sales
+</h4>
+
+<div class="chart-box">
+
+<canvas id="categoryChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section class="section" id="projects">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+Featured <span class="highlight">Projects</span>
+</h2>
+
+<p>
+Some of my dashboard and data analytics work.
+</p>
+
+</div>
+
+
+<div class="project-grid">
+
+
+<!-- PROJECT 1 -->
+
+<article class="project">
+
+<img
+src="tableau story.jpeg"
+alt="Sales Performance Analysis Dashboard"
+class="project-image">
+
+<div class="project-content">
+
+<h3>
+Sales Performance Analysis
+</h3>
+
+<p>
+
+Regional sales performance,
+sub-category analysis, sales trends,
+profit analysis and state-wise sales
+visualization.
+
+</p>
+
+<div class="tags">
+
+<span>Tableau</span>
+<span>Sales Analysis</span>
+<span>Dashboard</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- PROJECT 2 -->
+
+<article class="project">
+
+<img
+src="dashboard 2.jpeg"
+alt="Sales Performance Power BI Dashboard"
+class="project-image">
+
+<div class="project-content">
+
+<h3>
+Sales Performance Dashboard
+</h3>
+
+<p>
+
+Interactive Power BI dashboard
+showing sales, profit, products,
+customers, payment methods and
+regional performance.
+
+</p>
+
+<div class="tags">
+
+<span>Power BI</span>
+<span>DAX</span>
+<span>Data Visualization</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- PROJECT 3 -->
+
+<article class="project">
+
+<img
+src="dashboard.jpeg.jpeg"
+alt="Sales Dashboard 2026"
+class="project-image">
+
+<div class="project-content">
+
+<h3>
+Sales Dashboard 2026
+</h3>
+
+<p>
+
+Dashboard covering product categories,
+quantity ordered, customer shipping
+locations, discounts and sales trends.
+
+</p>
+
+<div class="tags">
+
+<span>Power BI</span>
+<span>Dashboard</span>
+<span>Business Analytics</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section class="section" id="skills">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+Technical <span class="highlight">Skills</span>
+</h2>
+
+<p>
+Tools and concepts I am learning and practicing.
+</p>
+
+</div>
+
+
+<div class="skills-grid">
+
+
+<div class="skill">
+
+<div class="skill-icon">
+EX
+</div>
+
+<h3>
+Microsoft Excel
+</h3>
+
+<p>
+Formulas, IFERROR, VLOOKUP,
+INDEX-MATCH, PivotTables,
+charts and dashboards.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+SQL
+</div>
+
+<h3>
+SQL
+</h3>
+
+<p>
+SELECT, WHERE, GROUP BY,
+joins, aggregate functions
+and data filtering.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+PY
+</div>
+
+<h3>
+Python
+</h3>
+
+<p>
+Python fundamentals,
+conditions, loops, functions,
+lists and dictionaries.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+PD
+</div>
+
+<h3>
+Pandas & NumPy
+</h3>
+
+<p>
+DataFrames, arrays,
+CSV data, filtering,
+grouping and cleaning.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+BI
+</div>
+
+<h3>
+Power BI
+</h3>
+
+<p>
+Dashboards, KPIs, DAX,
+filters, slicers and
+interactive reports.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+TB
+</div>
+
+<h3>
+Tableau
+</h3>
+
+<p>
+Charts, dashboards,
+filters, calculated fields
+and data storytelling.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+DV
+</div>
+
+<h3>
+Data Visualization
+</h3>
+
+<p>
+Charts, trends,
+comparisons and
+business insights.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+ST
+</div>
+
+<h3>
+Statistics
+</h3>
+
+<p>
+Descriptive statistics,
+distributions, correlation
+and data interpretation.
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+ML
+</div>
+
+<h3>
+Machine Learning
+</h3>
+
+<p>
+Introductory concepts,
+data preparation,
+models and evaluation.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="section" id="contact">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+Let's <span class="highlight">Connect</span>
+</h2>
+
+<p>
+Interested in analytics, projects or
+learning opportunities? Feel free to connect.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="card">
+
+<h3>
+Contact Information
+</h3>
+
+<p>
+
+I am interested in entry-level
+Data Analytics opportunities,
+learning experiences and
+collaborative projects.
+
+</p>
+
+
+<div class="contact-links">
+
+<a href="mailto:Shristirawat107@gmail.com">
+✉ Shristirawat107@gmail.com
+</a>
+
+<a
+href="https://www.linkedin.com/"
+target="_blank">
+in LinkedIn Profile
+</a>
+
+<a
+href="https://github.com/"
+target="_blank">
+⌘ GitHub Profile
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Send a Message
+</h3>
+
+<form
+class="contact-form"
+id="contactForm">
+
+
+<label>
+
+Your Name
+
+<input
+type="text"
+name="name"
+placeholder="Enter your name"
+required>
+
+</label>
+
+
+<label>
+
+Your Email
+
+<input
+type="email"
+name="email"
+placeholder="Enter your email"
+required>
+
+</label>
+
+
+<label>
+
+Message
+
+<textarea
+name="message"
+placeholder="Write your message..."
+required></textarea>
+
+</label>
+
+
+<button
+type="submit"
+class="btn btn-primary">
+
+Prepare Email →
+
+</button>
+
+</form>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+© <span id="year"></span>
+Shristi Rawat • Data Analytics Portfolio
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+menuBtn.addEventListener("click", function(){
+
+navLinks.classList.toggle("open");
+
+menuBtn.textContent =
+navLinks.classList.contains("open")
+? "✕"
+: "☰";
+
+});
+
+
+document
+.querySelectorAll("#navLinks a")
+.forEach(function(link){
+
+link.addEventListener("click", function(){
+
+navLinks.classList.remove("open");
+
+menuBtn.textContent = "☰";
+
+});
+
+});
+
+
+/* =========================
+   YEAR
+========================= */
+
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+
+/* =========================
+   CHARTS
+========================= */
+
+if(typeof Chart !== "undefined"){
+
+Chart.defaults.color = "#94a9bf";
+
+Chart.defaults.font.family =
+"Arial, sans-serif";
+
+
+/* Revenue Chart */
+
+new Chart(
+document.getElementById("revenueChart"),
+{
+
+type: "line",
+
+data: {
+
+labels: [
+"Jan",
+"Feb",
+"Mar",
+"Apr",
+"May",
+"Jun",
+"Jul",
+"Aug"
+],
+
+datasets: [{
+
+label: "Revenue",
+
+data: [
+85000,
+92000,
+110000,
+105000,
+125000,
+118000,
+140000,
+155000
+],
+
+borderColor: "#22d3ee",
+
+backgroundColor:
+"rgba(34,211,238,.12)",
+
+fill: true,
+
+tension: .4,
+
+pointRadius: 3
+
+}]
+
+},
+
+options: {
+
+responsive: true,
+
+maintainAspectRatio: false,
+
+plugins: {
+
+legend: {
+position: "bottom"
+}
+
+},
+
+scales: {
+
+y: {
+
+beginAtZero: true,
+
+ticks: {
+
+callback:
+function(value){
+
+return "₹"
++
+(value / 1000)
++
+"K";
+
+}
+
+}
+
+}
+
+}
+
+}
+
+});
+
+
+
+/* Category Chart */
+
+new Chart(
+document.getElementById("categoryChart"),
+{
+
+type: "bar",
+
+data: {
+
+labels: [
+"Electronics",
+"Clothing",
+"Home",
+"Beauty"
+],
+
+datasets: [{
+
+label: "Sales",
+
+data: [
+420000,
+310000,
+260000,
+260000
+],
+
+backgroundColor: [
+"#22d3ee",
+"#3b82f6",
+"#60a5fa",
+"#38bdf8"
+],
+
+borderRadius: 7
+
+}]
+
+},
+
+options: {
+
+responsive: true,
+
+maintainAspectRatio: false,
+
+plugins: {
+
+legend: {
+display: false
+}
+
+},
+
+scales: {
+
+y: {
+
+beginAtZero: true,
+
+ticks: {
+
+callback:
+function(value){
+
+return "₹"
++
+(value / 1000)
++
+"K";
+
+}
+
+}
+
+}
+
+}
+
+}
+
+});
+
+}
+
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+document
+.getElementById("contactForm")
+.addEventListener("submit", function(event){
+
+event.preventDefault();
+
+const data =
+new FormData(this);
+
+const name =
+data.get("name");
+
+const email =
+data.get("email");
+
+const message =
+data.get("message");
+
+
+const recipient =
+"Shristirawat107@gmail.com";
+
+
+const subject =
+encodeURIComponent(
+"Portfolio Message from "
++
+name
+);
+
+
+const body =
+encodeURIComponent(
+
+"Name: "
++
+name
++
+"\nEmail: "
++
+email
++
+"\n\nMessage:\n"
++
+message
+
+);
+
+
+window.location.href =
+"mailto:"
++
+recipient
++
+"?subject="
++
+subject
++
+"&body="
++
+body;
+
+});
+
+</script>
+
+</body>
+</html>
